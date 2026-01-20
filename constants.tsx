@@ -22,7 +22,8 @@ export const PROGRAMS: ProgramItem[] = [
     description: 'Únete a una comunidad apasionada. Entrenamientos grupales, técnica de carrera y apoyo mutuo para alcanzar tu próxima meta.',
     image: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&q=80&w=1000',
     cta: 'Unirse Ahora',
-    tag: 'COMUNIDAD'
+    tag: 'COMUNIDAD',
+    href: 'https://docs.google.com/forms/d/e/1FAIpQLSfsdsyjoDkxp8_LXL821r1VhGdmLwINZPqkghBVJz8YUkSmkg/viewform'
   },
   {
     title: 'EMPRESAS',

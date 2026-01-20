@@ -15,4 +15,5 @@ export interface ProgramItem {
   image: string;
   cta: string;
   tag?: string;
+  href?: string;
 }

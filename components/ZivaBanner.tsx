@@ -24,22 +24,27 @@ const ZivaBanner: React.FC = () => {
               <h3 className="font-display text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight max-w-md">
                 Haz el deporte tu estilo de vida
               </h3>
-              
+
               <p className="text-gray-500 text-lg leading-relaxed max-w-lg font-medium">
                 Entrena desde casa, a tu tiempo, a tu ritmo. Equípate con ZIVA: mancuernas, tapetes, pelotas, ligas, barras y todos los accesorios necesarios para una rutina de nivel profesional.
               </p>
 
-              <button className="bg-black hover:bg-gray-800 text-white px-10 py-4 rounded-none font-black transition-all text-xs uppercase tracking-[0.2em] mt-4 shadow-lg shadow-black/10">
+              <a
+                href="https://eu.ziva.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-black hover:bg-gray-800 text-white px-10 py-4 rounded-none font-black transition-all text-xs uppercase tracking-[0.2em] mt-4 shadow-lg shadow-black/10"
+              >
                 Ver Colección
-              </button>
+              </a>
             </div>
           </div>
 
           {/* Columna de Imagen */}
           <div className="relative h-[600px] md:h-full min-h-[700px] bg-[#f8f8f8] flex items-center justify-center">
-            <img 
-              src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&q=80&w=1200" 
-              alt="Elite Gym Equipment" 
+            <img
+              src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&q=80&w=1200"
+              alt="Elite Gym Equipment"
               className="absolute inset-0 w-full h-full object-cover grayscale brightness-105 contrast-110"
             />
             <div className="absolute inset-0 bg-black/5" />

@@ -5,7 +5,7 @@ const RunClub: React.FC = () => {
   return (
     <section id="run-club" className="py-24 bg-[#0f0f0f] border-y border-white/5 overflow-hidden relative">
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-[#0095ff]/5 blur-[120px] rounded-full -z-0" />
-      
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           <div className="flex-1 space-y-8">
@@ -16,7 +16,7 @@ const RunClub: React.FC = () => {
                 <span className="text-gray-600">No corres solo</span>
               </h2>
             </div>
-            
+
             <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
               Más que un grupo de entrenamiento, somos una comunidad de alto rendimiento. Sesiones presenciales de técnica, fondo y preparación específica para maratones y triatlones.
             </p>
@@ -39,16 +39,21 @@ const RunClub: React.FC = () => {
               ))}
             </div>
 
-            <button className="bg-[#0095ff] hover:bg-[#0084e6] text-white px-10 py-5 rounded-xl font-bold transition-all shadow-xl shadow-[#0095ff]/20 uppercase tracking-widest text-sm">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfsdsyjoDkxp8_LXL821r1VhGdmLwINZPqkghBVJz8YUkSmkg/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-[#0095ff] hover:bg-[#0084e6] text-white px-10 py-5 rounded-xl font-bold transition-all shadow-xl shadow-[#0095ff]/20 uppercase tracking-widest text-sm text-center"
+            >
               Unirse al Club
-            </button>
+            </a>
           </div>
 
           <div className="flex-1 relative">
             <div className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden border border-white/10">
-              <img 
-                src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=80&w=1200" 
-                alt="Run Club Group" 
+              <img
+                src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=80&w=1200"
+                alt="Run Club Group"
                 className="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-[#121212] via-transparent to-transparent opacity-60" />

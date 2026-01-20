@@ -2,71 +2,80 @@
 import React from 'react';
 
 const BRANDS = [
-  { 
-    name: 'Huawei', 
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Huawei_logo.svg/2500px-Huawei_logo.svg.png',
-    className: 'h-10 md:h-12' 
+  {
+    name: 'Huawei',
+    logo: '/assets/images/logo-huawei.png',
+    url: 'https://www.huawei.com',
+    className: 'h-14 md:h-20'
   },
-  { 
-    name: 'BCMAD', 
-    logo: 'https://bcmad.es/wp-content/uploads/2021/04/Logo-BCMAD-Blanco.png',
-    className: 'h-8 md:h-10' 
+  {
+    name: 'BCMAD',
+    logo: '/assets/images/logo-bcnmad.png',
+    url: 'https://bcmad.es',
+    className: 'h-12 md:h-16'
   },
-  { 
-    name: 'Decimas', 
-    logo: 'https://logodownload.org/wp-content/uploads/2021/03/decimas-logo.png',
-    invert: true,
-    className: 'h-6 md:h-7' 
+  {
+    name: 'Decimas',
+    logo: '/assets/images/logo-decimas.png',
+    url: 'https://www.decimas.es',
+    className: 'h-8 md:h-12'
   },
-  { 
-    name: 'NDL pro-health', 
-    logo: 'https://ndlprohealth.com/cdn/shop/files/NDL_Logotipo_Blanco_Principal.png',
-    className: 'h-9 md:h-11' 
+  {
+    name: 'NDL pro-health',
+    logo: '/assets/images/logo-ndl.png',
+    url: 'https://ndlprohealth.com',
+    className: 'h-12 md:h-16'
   },
-  { 
-    name: 'FDL fitness deluxe', 
-    logo: 'https://fitnessdeluxe.es/wp-content/uploads/2022/02/Logo-Fitness-Deluxe-Blanco.png',
-    className: 'h-9 md:h-11' 
+  {
+    name: 'FDL fitness deluxe',
+    logo: '/assets/images/logo-fdl.png',
+    url: 'https://fitnessdeluxe.es',
+    className: 'h-12 md:h-16'
   },
-  { 
-    name: 'PT Online Training', 
-    logo: 'https://pablolucero.com/wp-content/uploads/2022/10/logo-pt-online-white.png',
-    className: 'h-10 md:h-12' 
+  {
+    name: 'PT Online Training',
+    logo: '/assets/images/logo-pt.png',
+    url: 'https://pablolucero.com',
+    className: 'h-14 md:h-20'
   },
-  { 
-    name: 'Ziva', 
-    logo: 'https://zivalife.com/wp-content/uploads/2022/07/Ziva-Logo-Yellow-Black.png',
-    invert: true,
-    className: 'h-8 md:h-10' 
+  {
+    name: 'Ziva',
+    logo: '/assets/images/logo-ziva.png',
+    url: 'https://zivalife.com',
+    className: 'h-10 md:h-14'
   },
-  { 
-    name: 'Mapfre', 
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/MAPFRE_logo.svg/2560px-MAPFRE_logo.svg.png',
-    className: 'h-7 md:h-9' 
+  {
+    name: 'Mapfre',
+    logo: '/assets/images/logo-mapfre.png',
+    url: 'https://www.mapfre.es',
+    className: 'h-10 md:h-14'
   },
 ];
 
 const TrustedBrands: React.FC = () => {
   return (
-    <section className="py-20 bg-[#121212] border-t border-white/5">
+    <section id="brands" className="py-20 bg-[#121212] border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
           <span className="text-[10px] font-bold tracking-[0.5em] text-[#0095ff] uppercase opacity-80">
             Empresas que confían en mi método
           </span>
         </div>
-        
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:flex lg:flex-wrap items-center justify-center gap-10 md:gap-16">
+
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:flex lg:flex-wrap items-center justify-center gap-12 md:gap-20">
           {BRANDS.map((brand) => (
-            <div 
-              key={brand.name} 
-              className="flex items-center justify-center transition-all hover:scale-105 duration-500 group"
+            <a
+              key={brand.name}
+              href={brand.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center transition-all hover:scale-110 duration-500 group cursor-pointer"
               title={brand.name}
             >
-              <img 
-                src={brand.logo} 
-                alt={brand.name} 
-                className={`max-w-[140px] object-contain transition-all duration-500 opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-100 ${brand.invert ? 'brightness-0 invert' : ''} ${brand.className}`}
+              <img
+                src={brand.logo}
+                alt={brand.name}
+                className={`max-w-[200px] object-contain transition-all duration-500 opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-100 mix-blend-screen ${brand.className}`}
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
@@ -79,7 +88,7 @@ const TrustedBrands: React.FC = () => {
                   }
                 }}
               />
-            </div>
+            </a>
           ))}
         </div>
       </div>
