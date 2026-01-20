@@ -1,0 +1,8 @@
+{
+  "name": "Pablo Lucero Coaching",
+  "description": "High-performance coaching for athletes and corporate wellness programs, specializing in triathlons and running.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
