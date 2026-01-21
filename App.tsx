@@ -10,7 +10,6 @@ import Programs from './components/Programs';
 import Corporate from './components/Corporate';
 import RunClub from './components/RunClub';
 import Footer from './components/Footer';
-import Assistant from './components/Assistant';
 
 const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -48,7 +47,6 @@ const App: React.FC = () => {
         <RunClub />
       </main>
       <Footer id="contact" />
-      <Assistant />
     </div>
   );
 };

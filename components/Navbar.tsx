@@ -22,12 +22,11 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-[#121212]/90 backdrop-blur-md py-4 border-b border-white/10' : 'bg-transparent py-6'
-    }`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#121212]/90 backdrop-blur-md py-4 border-b border-white/10' : 'bg-transparent py-6'
+      }`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <a 
-          href="#home" 
+        <a
+          href="#home"
           onClick={(e) => handleNavClick(e, '#home')}
           className="flex items-center gap-2 group cursor-pointer"
         >
@@ -52,7 +51,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
           ))}
         </div>
 
-        <button className="bg-[#0095ff] hover:bg-[#0084e6] text-white px-6 py-2.5 rounded-lg text-xs font-bold transition-all shadow-lg shadow-[#0095ff]/20 uppercase tracking-widest">
+        <button className="bg-[#0095ff] hover:bg-[#0084e6] text-white px-4 py-2.5 rounded-lg text-xs font-bold transition-all shadow-lg shadow-[#0095ff]/20 uppercase tracking-widest">
           Empezar Ahora
         </button>
       </div>
