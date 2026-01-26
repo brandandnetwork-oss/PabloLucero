@@ -4,16 +4,14 @@ import React from 'react';
 const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background Overlay */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#121212] via-[#121212]/80 to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent z-10" />
-        <img 
-          src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=2000" 
-          alt="Athlete Training" 
-          className="w-full h-full object-cover grayscale opacity-50"
-        />
-      </div>
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 w-full h-full bg-cover bg-center grayscale opacity-70"
+        style={{ backgroundImage: 'url(/fondo-top.png)' }}
+      />
+      {/* Gradient Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#121212]/60 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#121212]/60 via-transparent to-transparent" />
 
       <div className="relative z-20 max-w-7xl mx-auto px-6 w-full">
         <div className="max-w-3xl space-y-8">
