@@ -84,12 +84,12 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
           </div>
 
           <div>
-            <h4 className="font-bold text-white uppercase tracking-widest text-xs mb-6">Servicios</h4>
+            <h4 className="font-bold text-white uppercase tracking-widest text-xs mb-6">Runclub</h4>
             <ul className="space-y-3 text-sm text-gray-500">
-              <li><a href="#" className="hover:text-white transition-colors">Coaching 1 a 1</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Triatlón Elite</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Empresas</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Nutrición</a></li>
+              <li><a href="/join-club" className="hover:text-white transition-colors">Unete al club</a></li>
+              <li><a href="#" className="hover:text-white transition-colors"></a></li>
+              <li><a href="#" className="hover:text-white transition-colors"></a></li>
+              <li><a href="#" className="hover:text-white transition-colors"></a></li>
             </ul>
           </div>
 

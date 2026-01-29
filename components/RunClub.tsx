@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const RunClub: React.FC = () => {
   return (
@@ -10,7 +11,7 @@ const RunClub: React.FC = () => {
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           <div className="flex-1 space-y-8">
             <div className="space-y-4">
-              <span className="text-[#0095ff] font-bold tracking-[0.3em] uppercase text-xs">Comunidad Elite</span>
+              <span className="text-[#0095ff] font-bold tracking-[0.3em] uppercase text-xs">Comunidad </span>
               <h2 className="font-display text-5xl md:text-6xl font-black uppercase leading-[0.9]">
                 PL Run Club <br />
                 <span className="text-gray-600">No corres solo</span>
@@ -18,7 +19,7 @@ const RunClub: React.FC = () => {
             </div>
 
             <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
-              Más que un grupo de entrenamiento, somos una comunidad de alto rendimiento. Sesiones presenciales de técnica, fondo y preparación específica para maratones y triatlones.
+              Más que un grupo de entrenamiento, somos una comunidad.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -39,14 +40,12 @@ const RunClub: React.FC = () => {
               ))}
             </div>
 
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSfsdsyjoDkxp8_LXL821r1VhGdmLwINZPqkghBVJz8YUkSmkg/viewform"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/join-club"
               className="inline-block bg-[#0095ff] hover:bg-[#0084e6] text-white px-10 py-5 rounded-xl font-bold transition-all shadow-xl shadow-[#0095ff]/20 uppercase tracking-widest text-sm text-center"
             >
               Unirse al Club
-            </a>
+            </Link>
           </div>
 
           <div className="flex-1 relative">
@@ -60,7 +59,7 @@ const RunClub: React.FC = () => {
             </div>
             <div className="absolute -bottom-6 -right-6 bg-[#1a1a1a] border border-white/10 p-6 rounded-2xl shadow-2xl hidden md:block">
               <div className="flex items-center gap-4">
-                <div className="text-3xl font-display font-black text-[#0095ff]">100+</div>
+                <div className="text-3xl font-display font-black text-[#0095ff]">200+</div>
                 <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest leading-tight">Atletas Activos <br />en el Club</div>
               </div>
             </div>

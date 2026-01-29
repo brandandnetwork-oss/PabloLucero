@@ -12,7 +12,6 @@ export const NAV_ITEMS: NavItem[] = [
 export const STATS: StatItem[] = [
   { value: '15+', label: 'Años de Experiencia' },
   { value: '500+', label: 'Atletas Entrenados' },
-  { value: 'IM 70.3', label: 'Especialista Ironman' },
   { value: '100%', label: 'Compromiso' },
 ];
 

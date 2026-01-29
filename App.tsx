@@ -1,17 +1,23 @@
 
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Stats from './components/Stats';
-import About from './components/About';
-import TrustedBrands from './components/TrustedBrands';
-import ZivaBanner from './components/ZivaBanner';
-import Programs from './components/Programs';
-import Corporate from './components/Corporate';
-import RunClub from './components/RunClub';
 import Footer from './components/Footer';
+import Home from './pages/Home';
+import AboutFull from './pages/AboutFull';
+import JoinClub from './pages/JoinClub';
 
-const App: React.FC = () => {
+const ScrollToTop = () => {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+  return null;
+};
+
+const AppContent: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -24,30 +30,25 @@ const App: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen selection:bg-[#0095ff] selection:text-white">
+      <ScrollToTop />
       <Navbar scrolled={scrolled} />
-      <main>
-        <div id="home">
-          <Hero />
-        </div>
-        <Stats />
-        <div id="about">
-          <About />
-        </div>
-        
-        {/* Nueva sección de empresas aliadas */}
-        <TrustedBrands />
-
-        {/* Banner solicitado: Equipamiento/Ziva */}
-        <ZivaBanner />
-
-        <div id="services">
-          <Programs />
-          <Corporate />
-        </div>
-        <RunClub />
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutFull />} />
+          <Route path="/join-club" element={<JoinClub />} />
+        </Routes>
       </main>
       <Footer id="contact" />
     </div>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
   );
 };
 

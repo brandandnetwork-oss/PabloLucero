@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { NAV_ITEMS } from '../constants';
 
 interface NavbarProps {
@@ -7,17 +8,30 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+
     if (href.startsWith('#')) {
-      e.preventDefault();
-      const targetId = href.replace('#', '');
-      const element = document.getElementById(targetId);
-      if (element) {
-        window.scrollTo({
-          top: element.offsetTop - 80, // Offset para el navbar fixed
-          behavior: 'smooth'
-        });
+      if (location.pathname !== '/') {
+        navigate('/');
+        // After navigation, we can't easily scroll to element in the same tick. 
+        // User will land on top of Home. 
+        // For better UX we could use a context or url param, but for now simple navigation is safer.
+      } else {
+        const targetId = href.replace('#', '');
+        const element = document.getElementById(targetId);
+        if (element) {
+          window.scrollTo({
+            top: element.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
       }
+    } else {
+      window.location.href = href;
     }
   };
 
