@@ -41,13 +41,14 @@ const ZivaBanner: React.FC = () => {
           </div>
 
           {/* Columna de Imagen */}
-          <div className="relative h-[600px] md:h-full min-h-[700px] bg-[#f8f8f8] flex items-center justify-center">
+          <div className="relative h-[600px] md:h-full min-h-[700px] bg-[#f8f8f8] flex items-center justify-center overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&q=80&w=1200"
+              src="/assets/images/ziva.png"
               alt="Elite Gym Equipment"
-              className="absolute inset-0 w-full h-full object-cover grayscale brightness-105 contrast-110"
+              className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-all duration-1000"
             />
-            <div className="absolute inset-0 bg-black/5" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-black/5" />
+            <div className="absolute inset-0 bg-black/10" />
           </div>
         </div>
       </div>

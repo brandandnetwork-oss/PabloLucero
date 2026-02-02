@@ -13,7 +13,7 @@ const RunClub: React.FC = () => {
             <div className="space-y-4">
               <span className="text-[#0095ff] font-bold tracking-[0.3em] uppercase text-xs">Comunidad </span>
               <h2 className="font-display text-5xl md:text-6xl font-black uppercase leading-[0.9]">
-                PL Run Club <br />
+                RUN.CLUB <br />
                 <span className="text-gray-600">No corres solo</span>
               </h2>
             </div>

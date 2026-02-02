@@ -1,19 +1,15 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const BRANDS = [
   {
     name: 'Huawei',
     logo: '/assets/images/logo-huawei.png',
-    url: 'https://www.huawei.com',
+    url: 'https://consumer.huawei.com/es/',
     className: 'h-14 md:h-20'
   },
-  {
-    name: 'BCMAD',
-    logo: '/assets/images/logo-bcnmad.png',
-    url: 'https://bcmad.es',
-    className: 'h-12 md:h-16'
-  },
+
   {
     name: 'Decimas',
     logo: '/assets/images/logo-decimas.png',
@@ -23,7 +19,7 @@ const BRANDS = [
   {
     name: 'NDL pro-health',
     logo: '/assets/images/logo-ndl.png',
-    url: 'https://ndlprohealth.com',
+    url: '/ndl',
     className: 'h-12 md:h-16'
   },
   {
@@ -32,12 +28,7 @@ const BRANDS = [
     url: 'https://fitnessdeluxe.es',
     className: 'h-12 md:h-16'
   },
-  {
-    name: 'PT Online Training',
-    logo: '/assets/images/logo-pt.png',
-    url: 'https://pablolucero.com',
-    className: 'h-14 md:h-20'
-  },
+
   {
     name: 'Ziva',
     logo: '/assets/images/logo-ziva.png',
@@ -62,34 +53,42 @@ const TrustedBrands: React.FC = () => {
           </span>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:flex lg:flex-wrap items-center justify-center gap-12 md:gap-20">
-          {BRANDS.map((brand) => (
-            <a
-              key={brand.name}
-              href={brand.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center transition-all hover:scale-110 duration-500 group cursor-pointer"
-              title={brand.name}
-            >
-              <img
-                src={brand.logo}
-                alt={brand.name}
-                className={`max-w-[200px] object-contain transition-all duration-500 opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-100 mix-blend-screen ${brand.className}`}
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  const parent = target.parentElement;
-                  if (parent) {
-                    const span = document.createElement('span');
-                    span.className = 'text-[9px] font-black text-gray-500 text-center uppercase tracking-widest opacity-60 group-hover:opacity-100 group-hover:text-[#0095ff] transition-all';
-                    span.innerText = brand.name;
-                    parent.appendChild(span);
-                  }
-                }}
-              />
-            </a>
-          ))}
+        <div className="relative overflow-hidden w-full">
+          <div className="flex w-fit items-center gap-20 animate-marquee whitespace-nowrap">
+            {[...BRANDS, ...BRANDS].map((brand, index) => {
+              const isExternal = brand.url.startsWith('http');
+              const Component = isExternal ? 'a' : Link;
+              const props = isExternal
+                ? { href: brand.url, target: '_blank', rel: 'noopener noreferrer' }
+                : { to: brand.url };
+
+              return (
+                <Component
+                  key={`${brand.name}-${index}`}
+                  {...props}
+                  className="flex flex-shrink-0 items-center justify-center transition-all hover:scale-110 duration-500 group cursor-pointer"
+                  title={brand.name}
+                >
+                  <img
+                    src={brand.logo}
+                    alt={brand.name}
+                    className={`max-w-[200px] object-contain transition-all duration-500 opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-100 mix-blend-screen ${brand.className}`}
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      const parent = target.parentElement;
+                      if (parent) {
+                        const span = document.createElement('span');
+                        span.className = 'text-[9px] font-black text-gray-500 text-center uppercase tracking-widest opacity-60 group-hover:opacity-100 group-hover:text-[#0095ff] transition-all';
+                        span.innerText = brand.name;
+                        parent.appendChild(span);
+                      }
+                    }}
+                  />
+                </Component>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

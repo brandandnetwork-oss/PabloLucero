@@ -65,9 +65,12 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
           ))}
         </div>
 
-        <button className="bg-[#0095ff] hover:bg-[#0084e6] text-white px-4 py-2.5 rounded-lg text-xs font-bold transition-all shadow-lg shadow-[#0095ff]/20 uppercase tracking-widest">
+        <Link
+          to="/join-club"
+          className="bg-[#0095ff] hover:bg-[#0084e6] text-white px-4 py-2.5 rounded-lg text-xs font-bold transition-all shadow-lg shadow-[#0095ff]/20 uppercase tracking-widest"
+        >
           Empezar Ahora
-        </button>
+        </Link>
       </div>
     </nav>
   );

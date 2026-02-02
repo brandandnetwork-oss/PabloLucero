@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import AboutFull from './pages/AboutFull';
 import JoinClub from './pages/JoinClub';
+import NDL from './pages/NDL';
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
@@ -37,6 +38,7 @@ const AppContent: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutFull />} />
           <Route path="/join-club" element={<JoinClub />} />
+          <Route path="/ndl" element={<NDL />} />
         </Routes>
       </main>
       <Footer id="contact" />
