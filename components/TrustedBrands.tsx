@@ -41,6 +41,12 @@ const BRANDS = [
     url: 'https://www.mapfre.es',
     className: 'h-10 md:h-14'
   },
+  {
+    name: 'RunClub',
+    logo: '/assets/images/logo-runclub.png',
+    url: '/join-club',
+    className: 'h-12 md:h-16'
+  },
 ];
 
 const TrustedBrands: React.FC = () => {
