@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { NAV_ITEMS } from '../constants';
@@ -12,6 +12,18 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -95,7 +107,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 top-[80px] bg-[#121212] z-40 md:hidden animate-fade-in border-t border-white/10">
+        <div className="fixed inset-0 top-[80px] bg-[#121212]/95 backdrop-blur-xl z-40 md:hidden animate-fade-in border-t border-white/10 h-screen overflow-y-auto pb-40">
           <div className="flex flex-col p-6 gap-6">
             {NAV_ITEMS.map((item) => (
               <a

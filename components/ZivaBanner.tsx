@@ -41,7 +41,7 @@ const ZivaBanner: React.FC = () => {
           </div>
 
           {/* Columna de Imagen */}
-          <div className="relative h-[600px] md:h-full min-h-[700px] bg-[#f8f8f8] flex items-center justify-center overflow-hidden">
+          <div className="relative h-[400px] md:h-full md:min-h-[700px] bg-[#f8f8f8] flex items-center justify-center overflow-hidden">
             <img
               src="/assets/images/ziva.png"
               alt="Elite Gym Equipment"
