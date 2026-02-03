@@ -25,7 +25,7 @@ const JoinClub: React.FC = () => {
                 </div>
 
                 {/* Content */}
-                <div className="bg-[#1a1a1a] rounded-3xl p-8 md:p-12 border border-white/5 shadow-2xl">
+                <div className="bg-[#1a1a1a] rounded-3xl p-4 md:p-12 border border-white/5 shadow-2xl">
                     <div className="text-center mb-10 space-y-4">
                         <h1 className="text-3xl md:text-5xl font-black italic uppercase pb-2 px-4 leading-relaxed">
                             Únete al <span className="inline-block pr-2 text-transparent bg-clip-text bg-gradient-to-r from-[#0095ff] to-[#00c8ff]">Club</span>
@@ -48,13 +48,13 @@ const JoinClub: React.FC = () => {
 
                     <div className="w-full flex justify-center">
                         <iframe
-                            width="540"
-                            height="1100"
+                            width="100%"
+                            height="1400"
                             src="https://9a3cfc1e.sibforms.com/serve/MUIFAAE3fQgAOt9nrvV8nwH7KsRTzVVhqk-xa3XBOd-4Ub-JYfE_VIMf7L65sbtKlYwcRStAxTsxQJ96qHX4df5OnU75YFX9aLJSgK1k8Yt7yXPvea4f_E6HQNcn4PNKxFi-lF2o40egd1xY29Sv9zv4MNGX6z7mkqWk9mJ81-Tnu0l4_ZI8FCLQoQ2ta-pLMBKAKO5RYi-2fAhAhA=="
                             frameBorder="0"
                             scrolling="no"
                             allowFullScreen
-                            style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', maxWidth: '100%', borderRadius: '12px' }}
+                            style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', maxWidth: '540px', borderRadius: '12px' }}
                         ></iframe>
                     </div>
                 </div>
