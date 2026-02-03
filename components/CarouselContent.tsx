@@ -40,11 +40,11 @@ export const CarouselContent: React.FC<CarouselContentProps> = ({ images }) => {
     useEffect(() => {
         if (currentIndex === images.length) {
             // We are at the clone (visual first slide)
-            // Wait for transition to finish (700ms), then jump to index 0 without transition
+            // Wait for transition to finish (500ms), then jump to index 0 without transition
             timeoutRef.current = setTimeout(() => {
                 setIsTransitioning(false);
                 setCurrentIndex(0);
-            }, 700);
+            }, 500);
         }
     }, [currentIndex, images.length]);
 
@@ -52,14 +52,14 @@ export const CarouselContent: React.FC<CarouselContentProps> = ({ images }) => {
     useEffect(() => {
         const interval = setInterval(() => {
             nextSlide();
-        }, 5000);
+        }, 4500);
         return () => clearInterval(interval);
     }, [currentIndex]); // Dep on currentIndex to ensure fresh closure, mainly nextSlide
 
     return (
         <>
             <div
-                className={`absolute inset-0 flex select-none ${isTransitioning ? 'transition-transform duration-700 ease-in-out' : ''}`}
+                className={`absolute inset-0 flex select-none ${isTransitioning ? 'transition-transform duration-500 ease-in-out' : ''}`}
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
                 {extendedImages.map((src, index) => (

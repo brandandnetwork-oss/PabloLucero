@@ -33,6 +33,17 @@ const JoinClub: React.FC = () => {
                         <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
                             Completa el formulario para formar parte de nuestra comunidad de corredores.
                         </p>
+
+                        <div className="flex justify-center mt-6">
+                            <a
+                                href="https://www.instagram.com/runclubpl/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-block bg-transparent border border-white/20 hover:bg-white/5 text-white px-10 py-5 rounded-xl font-bold transition-all uppercase tracking-widest text-sm text-center"
+                            >
+                                Siguenos en Instagram
+                            </a>
+                        </div>
                     </div>
 
                     <div className="w-full flex justify-center">

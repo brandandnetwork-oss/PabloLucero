@@ -1,10 +1,11 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import bgImage from '../assets/images/fondo-runclub.JPG';
 
 const RunClub: React.FC = () => {
   return (
-    <section id="run-club" className="py-24 bg-[#0f0f0f] border-y border-white/5 overflow-hidden relative">
+    <section id="run-club" className="py-40 bg-[#0f0f0f] border-y border-white/5 overflow-hidden relative">
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-[#0095ff]/5 blur-[120px] rounded-full -z-0" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -40,18 +41,28 @@ const RunClub: React.FC = () => {
               ))}
             </div>
 
-            <Link
-              to="/join-club"
-              className="inline-block bg-[#0095ff] hover:bg-[#0084e6] text-white px-10 py-5 rounded-xl font-bold transition-all shadow-xl shadow-[#0095ff]/20 uppercase tracking-widest text-sm text-center"
-            >
-              Unirse al Club
-            </Link>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                to="/join-club"
+                className="inline-block bg-[#0095ff] hover:bg-[#0084e6] text-white px-10 py-5 rounded-xl font-bold transition-all shadow-xl shadow-[#0095ff]/20 uppercase tracking-widest text-sm text-center"
+              >
+                Unirse al Club
+              </Link>
+              <a
+                href="https://www.instagram.com/runclubpl/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-transparent border border-white/20 hover:bg-white/5 text-white px-10 py-5 rounded-xl font-bold transition-all uppercase tracking-widest text-sm text-center"
+              >
+                Siguenos en Instagram
+              </a>
+            </div>
           </div>
 
           <div className="flex-1 relative">
-            <div className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden border border-white/10">
+            <div className="relative aspect-square md:aspect-[4/5] rounded-3xl overflow-hidden border border-white/10">
               <img
-                src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=80&w=1200"
+                src={bgImage}
                 alt="Run Club Group"
                 className="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-700"
               />
