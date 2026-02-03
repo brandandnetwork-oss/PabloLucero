@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import bioImage from '../assets/images/foto-sobre-mi.PNG';
 
 const About: React.FC = () => {
   return (
@@ -35,7 +36,7 @@ const About: React.FC = () => {
             <div className="absolute -inset-4 border border-white/10 rounded-2xl group-hover:border-[#0095ff]/30 transition-colors" />
             <div className="relative aspect-[4/5] rounded-xl overflow-hidden contrast-125 bg-[#1a1a1a]">
               <img
-                src="/assets/images/foto-sobre-mi.png"
+                src={bioImage}
                 alt="Professional Trainer"
                 className="w-full h-full object-cover opacity-80"
               />
