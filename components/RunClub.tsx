@@ -1,9 +1,26 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import bgImage from '../assets/images/fondo-runclub.JPG';
 
 const RunClub: React.FC = () => {
+  const [showTechnique, setShowTechnique] = useState(false);
+  const [videos, setVideos] = useState<string[]>([]);
+
+  useEffect(() => {
+    const loadVideos = async () => {
+      const modules = import.meta.glob('../assets/images/videos/*.MOV', { eager: true });
+      const sortedPaths = Object.keys(modules).sort((a, b) => {
+        const numA = parseInt(a.split('/').pop()?.replace('.MOV', '') || '0');
+        const numB = parseInt(b.split('/').pop()?.replace('.MOV', '') || '0');
+        return numA - numB;
+      });
+      const loadedVideos = sortedPaths.map(path => (modules[path] as any).default);
+      setVideos(loadedVideos);
+    };
+    loadVideos();
+  }, []);
+
   return (
     <section id="run-club" className="py-40 bg-[#0f0f0f] border-y border-white/5 overflow-hidden relative">
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-[#0095ff]/5 blur-[120px] rounded-full -z-0" />
@@ -27,8 +44,8 @@ const RunClub: React.FC = () => {
               {[
                 "Técnica de Carrera",
                 "Entrenamiento en Pista",
-                "Salidas de Fondo",
-                "Análisis Biomecánico"
+                "Salidas en Grupo",
+                "Preparación de Carreras"
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3">
                   <div className="w-5 h-5 rounded-full bg-[#0095ff]/20 flex items-center justify-center">
@@ -44,18 +61,27 @@ const RunClub: React.FC = () => {
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/join-club"
-                className="inline-block bg-[#0095ff] hover:bg-[#0084e6] text-white px-10 py-5 rounded-xl font-bold transition-all shadow-xl shadow-[#0095ff]/20 uppercase tracking-widest text-sm text-center"
+                className="flex items-center justify-center bg-[#0095ff] hover:bg-[#0084e6] text-white px-10 py-5 rounded-xl font-bold transition-all shadow-xl shadow-[#0095ff]/20 uppercase tracking-widest text-sm text-center"
               >
                 Unirse al Club
               </Link>
-              <a
-                href="https://www.instagram.com/runclubpl/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-transparent border border-white/20 hover:bg-white/5 text-white px-10 py-5 rounded-xl font-bold transition-all uppercase tracking-widest text-sm text-center"
-              >
-                Siguenos en Instagram
-              </a>
+
+              <div className="flex flex-col gap-4">
+                <a
+                  href="https://www.instagram.com/runclubpl/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-transparent border border-white/20 hover:bg-white/5 text-white px-10 py-5 rounded-xl font-bold transition-all uppercase tracking-widest text-sm text-center"
+                >
+                  Siguenos en Instagram
+                </a>
+                <button
+                  onClick={() => setShowTechnique(!showTechnique)}
+                  className="inline-block bg-transparent border border-[#0095ff]/30 text-[#0095ff] hover:bg-[#0095ff]/10 px-10 py-5 rounded-xl font-bold transition-all uppercase tracking-widest text-sm text-center"
+                >
+                  Técnica de carrera
+                </button>
+              </div>
             </div>
           </div>
 
@@ -76,6 +102,38 @@ const RunClub: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* Video Section */}
+        {showTechnique && (
+          <div className="mt-24 pt-16 border-t border-white/5 animate-fade-in">
+            <div className="text-center mb-16">
+              <h3 className="font-display text-3xl md:text-4xl font-bold uppercase mb-4">
+                Técnica de <span className="text-[#0095ff]">Carrera</span>
+              </h3>
+              <p className="text-gray-400">Ejercicios fundamentales para mejorar tu biomecánica</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {videos.map((videoSrc, index) => (
+                <div key={index} className="space-y-4 group">
+                  <div className="relative aspect-video bg-black/40 rounded-2xl overflow-hidden border border-white/10 group-hover:border-[#0095ff]/30 transition-all">
+                    <video controls className="w-full h-full object-cover">
+                      <source src={videoSrc} type="video/quicktime" />
+                      <source src={videoSrc} type="video/mp4" />
+                      Tu navegador no soporta el tag de video.
+                    </video>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="w-8 h-8 rounded-full bg-[#0095ff]/10 text-[#0095ff] flex items-center justify-center font-bold text-sm">
+                      {index + 1}
+                    </span>
+                    <span className="text-sm font-bold uppercase tracking-wide text-gray-300">Ejercicio {index + 1}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

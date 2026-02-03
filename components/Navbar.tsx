@@ -1,6 +1,7 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 import { NAV_ITEMS } from '../constants';
 
 interface NavbarProps {
@@ -8,18 +9,27 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
+    setIsMenuOpen(false); // Close mobile menu if open
 
     if (href.startsWith('#')) {
       if (location.pathname !== '/') {
         navigate('/');
-        // After navigation, we can't easily scroll to element in the same tick. 
-        // User will land on top of Home. 
-        // For better UX we could use a context or url param, but for now simple navigation is safer.
+        setTimeout(() => {
+          const targetId = href.replace('#', '');
+          const element = document.getElementById(targetId);
+          if (element) {
+            window.scrollTo({
+              top: element.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        }, 100);
       } else {
         const targetId = href.replace('#', '');
         const element = document.getElementById(targetId);
@@ -52,6 +62,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
           <span className="font-display text-xl font-bold tracking-tight uppercase">Pablo Lucero</span>
         </a>
 
+        {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           {NAV_ITEMS.map((item) => (
             <a
@@ -63,15 +74,49 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
               {item.label}
             </a>
           ))}
+          <Link
+            to="/join-club"
+            className="bg-[#0095ff] hover:bg-[#0084e6] text-white px-4 py-2.5 rounded-lg text-xs font-bold transition-all shadow-lg shadow-[#0095ff]/20 uppercase tracking-widest"
+          >
+            Empezar Ahora
+          </Link>
         </div>
 
-        <Link
-          to="/join-club"
-          className="bg-[#0095ff] hover:bg-[#0084e6] text-white px-4 py-2.5 rounded-lg text-xs font-bold transition-all shadow-lg shadow-[#0095ff]/20 uppercase tracking-widest"
-        >
-          Empezar Ahora
-        </Link>
+        {/* Mobile Menu Button - "Logo azul de arriba a la derecha" */}
+        <div className="md:hidden flex items-center gap-4">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="w-10 h-10 bg-[#0095ff] rounded-lg flex items-center justify-center text-white"
+          >
+            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 top-[80px] bg-[#121212] z-40 md:hidden animate-fade-in border-t border-white/10">
+          <div className="flex flex-col p-6 gap-6">
+            {NAV_ITEMS.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="text-2xl font-display font-bold uppercase text-gray-300 hover:text-[#0095ff] transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+            <Link
+              to="/join-club"
+              onClick={() => setIsMenuOpen(false)}
+              className="bg-[#0095ff] text-center text-white p-4 rounded-xl font-bold uppercase tracking-widest mt-4"
+            >
+              Empezar Ahora
+            </Link>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
