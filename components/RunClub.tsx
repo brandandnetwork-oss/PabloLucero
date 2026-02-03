@@ -113,11 +113,11 @@ const RunClub: React.FC = () => {
               <p className="text-gray-400">Ejercicios fundamentales para mejorar tu biomecánica</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {videos.map((videoSrc, index) => (
                 <div key={index} className="space-y-4 group">
-                  <div className="relative aspect-video bg-black/40 rounded-2xl overflow-hidden border border-white/10 group-hover:border-[#0095ff]/30 transition-all">
-                    <video controls className="w-full h-full object-cover">
+                  <div className="relative aspect-[9/16] bg-black/40 rounded-2xl overflow-hidden border border-white/10 group-hover:border-[#0095ff]/30 transition-all">
+                    <video controls playsInline className="w-full h-full object-cover">
                       <source src={videoSrc} type="video/quicktime" />
                       <source src={videoSrc} type="video/mp4" />
                       Tu navegador no soporta el tag de video.
